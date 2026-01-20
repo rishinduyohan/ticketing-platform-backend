@@ -10,7 +10,7 @@ public class VippricingStrategy implements PricingStrategy {
         if (isHighDemand) {
             return basePrice;
         }
-        return basePrice.multiply(new BigDecimal("0.90")); // 10% off
+        return basePrice.multiply(new BigDecimal("0.90"));
     }
 
     @Override

@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class BookingDTO {
     private Long bookingId;
+    private Long userId;
     private Long seatId;
     private BigDecimal amountPaid;
     private String userTier;

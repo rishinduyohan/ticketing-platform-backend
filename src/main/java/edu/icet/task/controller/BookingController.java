@@ -2,6 +2,7 @@ package edu.icet.task.controller;
 
 import edu.icet.task.model.dto.BookingDTO;
 import edu.icet.task.service.BookingService;
+import edu.icet.task.service.annotation.AuditFailure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +21,7 @@ public class BookingController {
 
     @PostMapping
     @AuditFailure
-    public ResponseEntity<BookingDTO> createBooking(@RequestBody BookingRequest request) {
-        // This method will calculate dynamic pricing based on User Tier and Event demand [cite: 26, 31]
+    public ResponseEntity<BookingDTO> createBooking(@RequestBody BookingDTO request) {
         BookingDTO response = bookingService.processBooking(request.getUserId(), request.getSeatId());
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
